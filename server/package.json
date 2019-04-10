@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.4.0",
+    "cors": "^2.8.5",
+    "decimal.js": "^10.0.2",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-views-namespaces": "file:./libs/express-views-namespaces",
+    "helmet": "^3.15.0",
+    "http-errors": "^1.7.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "mongoose": "^5.3.12",
+    "mongoose-bcrypt": "file:./libs/mongoose-bcrypt",
+    "mongoose-findorcreate": "file:./libs/mongoose-findorcreate",
+    "morgan": "^1.9.1",
+    "nanocurrency": "^2.0.4",
+    "node-cron": "^2.0.3",
+    "pug": "^2.0.3",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}

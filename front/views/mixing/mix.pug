@@ -1,0 +1,41 @@
+extends layouts/base
+
+include /mixins/amount-input
+
+block vars
+  - var step = 1
+  - var title = 'Mixing - Mix'
+
+block mixingContent
+  include /includes/error
+
+  .form-group
+    label Amount Deposited:
+    +amountInput("NANO")(value=mixing.deposit.amount, readonly)
+  .form-group
+    label Fee:
+    +amountInput("%")(value=mixing.deposit.fee, readonly)
+  .form-group
+    label Final Amount:
+    +amountInput("NANO")(value=mixing.deposit.finalAmount, readonly)
+
+  form(method="get")
+    label No. of Pieces:
+    .row
+      .col-md-3
+        .form-group
+          input.form-control(type="number", name="pieces", value=pieces.length, min="1")
+      .col-auto
+        button.btn.btn-primary(type="submit") Submit
+
+  form(method="post", action=`/mixings/${mixing._id}/wallet/store`)
+    .row
+      each i in pieces
+        .col-md-3
+          .form-group
+            +amountInput("NANO")(placeholder=`Piece ${i + 1}`, name=`pieces[${i}]`, step="any")
+    .form-group
+      label Payment Delay:
+      +amountInput("Minute(s)")(name="paymentDelay", value="0", min="0")
+      small(class="form-text text-muted") Enter a value starting from 0, zero means instante payment and no dealy.
+    button.btn.btn-primary(type="submit") Mix and Withdraw

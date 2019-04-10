@@ -1,0 +1,20 @@
+extends layouts/base
+
+include /mixins/amount-input
+
+block vars
+  - var step = 0
+  - var title = 'Mixing - Deposit'
+
+block mixingContent
+  include /includes/error
+
+  .alert.alert-info
+    | Send coins you want to mix to the below account.<br>
+    | Note that the current MIN amount to deposit is 0.01 NANO and MAX amount is #{balance.toFixed(2)} NANO.
+  form(method="post", action=`/payments/${payment._id}/check`)
+    .form-group
+      label Account:
+      input.form-control(type="text" value=payment.account readonly)
+    button.btn.btn-primary(type="submit")
+      | Continue

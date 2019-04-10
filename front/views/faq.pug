@@ -1,0 +1,29 @@
+extends /layouts/page
+
+block vars
+  - var title = 'FAQ'
+  - var subTitle = 'Answers to your common questions'
+
+mixin question(i, title)
+  .card
+    .card-header(id=`q-${i}-header`)
+      button.btn.btn-link(type="button", data-toggle="collapse", data-target=`#q-${i}-collapse`)
+        = title
+    .collapse(id=`q-${i}-collapse`)
+      .card-body
+        block
+
+block pageContent
+  h4 General Questions
+  .accordion
+    +question(1, "How does deposit work?")
+      | Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+    +question(2, "What fee do you take?")
+      | Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+  br
+  h4 Privacy Questions
+  .accordion
+    +question(3, "Why withdrawal to private key?")
+      | Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+    +question(4, "How long do you keep logs?")
+      | Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.

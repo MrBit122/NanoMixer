@@ -1,0 +1,11 @@
+block vars
+doctype
+html
+  title Nano Mixer - #{title}
+  link(rel="shortcut icon" href="/images/favicon.ico")
+  link(rel="stylesheet" href="/css/front.css")
+  body(class=bodyClass)
+    include /includes/header
+    block content
+    include /includes/footer
+    script(src="/js/front.js")

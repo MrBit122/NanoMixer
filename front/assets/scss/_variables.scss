@@ -1,0 +1,32 @@
+$black: #000;
+
+$blue: #4a90e2;
+$orange: #ff8200;
+$light: #788c9a;
+$dark: #0f1121;
+
+$secondary: $orange;
+
+$spacer: 1rem;
+
+$font-family-sans-serif: Nunito, sans-serif;
+$font-size-base: 1.1rem;
+
+$navbar-padding-y: ($spacer * 3);
+$navbar-nav-link-padding-x: 1rem;
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+$container-max-widths: (
+  xl: 1200px
+);
+
+$line-height-base: 1.6;
+$line-height-lg: 1.6;
+$line-height-sm: 1.6;
+
+$grid-gutter-width: 40px;
+
+$hr-border-color: rgba($black, .25);

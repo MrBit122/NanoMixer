@@ -1,0 +1,12 @@
+extends /layouts/base
+
+include /mixins/step-list
+
+block content
+  .page
+    .page-body
+      .container
+        +stepList(step, ["Deposit", "Mix", "Withdraw"])
+        .card
+          .card-body
+            block mixingContent

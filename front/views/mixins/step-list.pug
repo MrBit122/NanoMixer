@@ -1,0 +1,4 @@
+mixin stepList(current, steps)
+  ul.step-list
+    each step, i in steps
+      li(class=(i === current ? 'current' : ''))= step

@@ -1,0 +1,20 @@
+extends layouts/base
+
+block vars
+  - var step = 2
+  - var title = 'Mixing - Withdraw'
+
+block mixingContent
+  .alert.alert-info
+    | Import the seed below in your wallet,
+    | and continuously create addresses to reach the coins.
+  .form-group
+    label Wallet Seed:
+    input.form-control(type="text", value=mixing.wallet.seed readonly)
+
+  .alert.alert-info
+    | Your session will be automatically destroyed after 7 days,
+    | But you can also Destroy it right now if you do not need to reset it later.
+  form(method="post", action=`/mixings/${mixing._id}/destroy`)
+    button.btn.btn-danger
+      | Destroy Session

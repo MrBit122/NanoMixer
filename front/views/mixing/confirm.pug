@@ -1,0 +1,25 @@
+extends layouts/base
+
+include /mixins/amount-input
+
+block vars
+  - var step = 0
+  - var title = 'Mixing - Confirm Deposit'
+
+block mixingContent
+  include /includes/error
+
+  .alert.alert-info
+    | The fee will be subtracted from your deposited amount.
+  form(method="post", action=`/payments/${mixing.deposit._id}/confirm`)
+    .form-group
+      label Amount Deposited:
+      input.form-control(type="text" value=mixing.deposit.amount readonly)
+    .form-group
+      label Fee:
+      +amountInput("%")(name="fee", value="3.5", min="0.5", max="3.5", step="any")
+      small(class="form-text text-muted") Enter a value between 0.5% and 3.5% to consider as fee.
+    button.btn.btn-primary(type="submit")
+      | Confirm and Continue
+    a.btn.btn-link(href=`/mixings/${mixing._id}/deposit`)
+      | Back

@@ -1,0 +1,16 @@
+extends layouts/base
+
+block vars
+  - var step = -1
+  - var title = 'Mixing - Start'
+
+block mixingContent
+  .alert.alert-info
+    | Make sure to save your session token some where safe,
+    | if you lose it you'll lose your money.
+  form(method="post", action="/mixings/store")
+    .form-group
+      label Session token:
+      input.form-control(type="text", value=token, readonly)
+    button.btn.btn-primary(type="submit")
+      | I saved the token, Continue
